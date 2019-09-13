@@ -22,7 +22,7 @@ test {
 }
 
 dependencies {
-  testImplementation kotest
+  testImplementation 'io.kotlintest:kotlintest-runner-junit5:3.3.0'
 }
 ```
 
