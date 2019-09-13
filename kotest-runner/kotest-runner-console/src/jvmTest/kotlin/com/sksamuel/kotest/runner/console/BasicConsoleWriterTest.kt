@@ -46,7 +46,7 @@ class BasicConsoleWriterTest : FunSpec() {
       out.shouldContain("com.sksamuel.kotest.runner.console.DefaultConsoleWriterTest")
       out.shouldContain("\ta test")
       out.shouldContain("\t\tcause: wibble boom (DefaultConsoleWriterTest.kt:18)")
-      out.shouldContain("KotlinTest completed in")
+      out.shouldContain("Kotest completed in")
       out.shouldContain("1 spec containing 5 tests")
       out.shouldContain("Tests: passed 2, failed 2, ignored 1")
       out.shouldContain("*** 2 TESTS FAILED ***")

@@ -6,12 +6,12 @@ import org.pitest.testapi.TestSuiteFinder
 import org.pitest.testapi.TestUnitFinder
 import java.util.Optional
 
-class KotlinTestConfiguration : Configuration {
+class KotestConfiguration : Configuration {
 
   override fun verifyEnvironment(): Optional<PitHelpError> = Optional.empty()
 
-  override fun testUnitFinder(): TestUnitFinder = KotlinTestUnitFinder()
+  override fun testUnitFinder(): TestUnitFinder = KotestUnitFinder()
 
-  override fun testSuiteFinder(): TestSuiteFinder = KotlinTestSuiteFinder()
+  override fun testSuiteFinder(): TestSuiteFinder = KotestSuiteFinder()
 
 }

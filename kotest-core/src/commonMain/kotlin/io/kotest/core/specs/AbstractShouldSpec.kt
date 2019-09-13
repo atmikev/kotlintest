@@ -60,7 +60,7 @@ abstract class AbstractShouldSpec(body: AbstractShouldSpec.() -> Unit = {}) : Ab
       }
    }
 
-  @KotlinTestDsl
+  @KotestDsl
   inner class ShouldScope(val context: TestContext) {
 
     suspend operator fun String.invoke(init: suspend ShouldScope.() -> Unit) =

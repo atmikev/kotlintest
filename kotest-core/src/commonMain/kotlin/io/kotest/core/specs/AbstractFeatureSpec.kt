@@ -41,7 +41,7 @@ abstract class AbstractFeatureSpec(body: AbstractFeatureSpec.() -> Unit = {}) : 
          defaultTestCaseConfig,
          TestType.Container)
 
-   @KotlinTestDsl
+   @KotestDsl
    inner class FeatureScope(val context: TestContext) {
 
       suspend fun and(name: String, init: suspend FeatureScope.() -> Unit) =

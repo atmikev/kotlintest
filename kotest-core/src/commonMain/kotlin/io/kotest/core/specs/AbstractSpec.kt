@@ -70,7 +70,7 @@ abstract class AbstractSpec : Spec {
 
    // this is a dummy method, intercepted by the kotlin.js framework adapter to generate tests
    @JsTest
-   fun kotlintestGenerateTests() {
+   fun kotestGenerateTests() {
       generateTests(rootTestCases.toList())
    }
 }

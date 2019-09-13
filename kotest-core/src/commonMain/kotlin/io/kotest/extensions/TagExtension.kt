@@ -21,7 +21,7 @@ import io.kotest.extensions.RuntimeTagExtension.included
  *
  * The default [RuntimeTagExtension] is automatically registered, which
  * allows to configure tags at runtime (for example, during a configuration procedure)
- * using the properties `included` and `eKotlinTestEnginexcluded`
+ * using the properties `included` and `excluded`
  */
 interface TagExtension : ProjectLevelExtension {
   fun tags(): Tags

@@ -4,7 +4,7 @@ import io.kotest.Description
 import io.kotest.Spec
 import io.kotest.TestCase
 import io.kotest.TestType
-import io.kotest.core.specs.KotlinTestDsl
+import io.kotest.core.specs.KotestDsl
 import kotlinx.coroutines.CoroutineScope
 import kotlin.coroutines.CoroutineContext
 
@@ -17,7 +17,7 @@ import kotlin.coroutines.CoroutineContext
   * [TestContext] implements [CoroutineScope], which allows test closures to launch coroutines
  * with the [CoroutineContext] provided by the test engine.
  */
-@KotlinTestDsl
+@KotestDsl
 abstract class TestContext(override val coroutineContext: CoroutineContext) : CoroutineScope {
 
   infix operator fun String.invoke(test: suspend TestContext.() -> Unit) {

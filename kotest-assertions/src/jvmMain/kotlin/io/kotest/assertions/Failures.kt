@@ -5,7 +5,7 @@ package io.kotest.assertions
 actual object Failures {
 
    /**
-    * Whether KotlinTest-related frames will be removed from the stack traces of thrown [AssertionError]s.
+    * Whether Kotest-related frames will be removed from the stack traces of thrown [AssertionError]s.
     *
     * This defaults to `true`. You can change it by setting the system property `kotest.failures.stacktrace.clean`
     * or at runtime, by reassigning this var.
@@ -13,16 +13,16 @@ actual object Failures {
     * E.g.:
     *
     * ```
-    *     -Dkotlintest.failures.stacktrace.clean=false
+    *     -Dkotest.failures.stacktrace.clean=false
     * ```
     *
     * or
     *
     * ```
-    *     Failures.shouldRemoveKotlintestElementsFromStacktrace = false
+    *     Failures.shouldRemoveKottestElementsFromStacktrace = false
     * ```
     */
-   var shouldRemoveKotlintestElementsFromStacktrace: Boolean =
+   var shouldRemoveKotestElementsFromStacktrace: Boolean =
       System.getProperty("kotest.failures.stacktrace.clean", "true") == "true"
 
    actual fun failure(message: String): AssertionError = failure(message, null)
@@ -32,14 +32,14 @@ actual object Failures {
    }
 
    /**
-    * Remove KotlinTest-related elements from the top of [throwable]'s stack trace.
+    * Remove Kotest-related elements from the top of [throwable]'s stack trace.
     *
-    * If no KotlinTest-related elements are present in the stack trace, it is unchanged.
-    * JVM only: If [shouldRemoveKotlintestElementsFromStacktrace] is `true`,
+    * If no Kotest-related elements are present in the stack trace, it is unchanged.
+    * JVM only: If [shouldRemoveKotestElementsFromStacktrace] is `true`,
     * the stacktrace will be reduced to the user-code StackTrace only.
     */
    actual fun clean(throwable: Throwable): Throwable {
-      if (shouldRemoveKotlintestElementsFromStacktrace)
+      if (shouldRemoveKotestElementsFromStacktrace)
          throwable.stackTrace = UserStackTraceConverter.getUserStacktrace(throwable.stackTrace)
       return throwable
    }

@@ -1,1 +1,1 @@
-io.kotest.plugin.pitest.KotlinTestPluginFactory
+io.kotest.plugin.pitest.KotestPluginFactory

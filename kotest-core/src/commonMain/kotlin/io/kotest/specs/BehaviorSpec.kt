@@ -5,7 +5,7 @@ import io.kotest.TestType
 import io.kotest.core.TestCaseConfig
 import io.kotest.core.TestContext
 import io.kotest.core.specs.AbstractSpecDsl
-import io.kotest.core.specs.KotlinTestDsl
+import io.kotest.core.specs.KotestDsl
 import io.kotest.core.specs.createTestName
 import io.kotest.extensions.TestCaseExtension
 import kotlin.time.Duration
@@ -25,7 +25,7 @@ abstract class BehaviorSpec(body: BehaviorSpec.() -> Unit = {}) : AbstractSpecDs
     addTestCase(createTestName("Given: ", name), { thisSpec.GivenContext(this).test() }, defaultTestCaseConfig, TestType.Container)
   }
 
-  @KotlinTestDsl
+  @KotestDsl
   inner class GivenContext(val context: TestContext) {
     suspend fun And(name: String, test: suspend GivenAndContext.() -> Unit) = addAndContext(name, test)
     suspend fun and(name: String, test: suspend GivenAndContext.() -> Unit) = addAndContext(name, test)
@@ -51,7 +51,7 @@ abstract class BehaviorSpec(body: BehaviorSpec.() -> Unit = {}) : AbstractSpecDs
     fun then(name: String) = TestScope(name, context)
   }
 
-  @KotlinTestDsl
+  @KotestDsl
   inner class GivenAndContext(val context: TestContext) {
     suspend fun And(name: String, test: suspend GivenAndContext.() -> Unit) = addAndContext(name, test)
     suspend fun and(name: String, test: suspend GivenAndContext.() -> Unit) = addAndContext(name, test)
@@ -77,7 +77,7 @@ abstract class BehaviorSpec(body: BehaviorSpec.() -> Unit = {}) : AbstractSpecDs
     fun then(name: String) = TestScope(name, context)
   }
 
-  @KotlinTestDsl
+  @KotestDsl
   inner class WhenContext(val context: TestContext) {
     suspend fun And(name: String, test: suspend WhenAndContext.() -> Unit) = addAndContext(name, test)
     suspend fun and(name: String, test: suspend WhenAndContext.() -> Unit) = addAndContext(name, test)
@@ -96,7 +96,7 @@ abstract class BehaviorSpec(body: BehaviorSpec.() -> Unit = {}) : AbstractSpecDs
     fun then(name: String) = TestScope(name, context)
   }
 
-  @KotlinTestDsl
+  @KotestDsl
   inner class WhenAndContext(val context: TestContext) {
     suspend fun And(name: String, test: suspend WhenAndContext.() -> Unit) = addAndContext(name, test)
     suspend fun and(name: String, test: suspend WhenAndContext.() -> Unit) = addAndContext(name, test)
@@ -115,10 +115,10 @@ abstract class BehaviorSpec(body: BehaviorSpec.() -> Unit = {}) : AbstractSpecDs
     fun then(name: String) = TestScope(name, context)
   }
 
-  @KotlinTestDsl
+  @KotestDsl
   inner class ThenContext(val context: TestContext)
 
-   @KotlinTestDsl
+   @KotestDsl
    inner class TestScope(val name: String, val context: TestContext) {
       @UseExperimental(ExperimentalTime::class)
       suspend fun config(

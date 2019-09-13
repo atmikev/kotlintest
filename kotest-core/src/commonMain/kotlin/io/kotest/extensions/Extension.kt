@@ -3,7 +3,7 @@ package io.kotest.extensions
 
 /**
  * What is an extension? - An extension allows your code to interact
- * with the KotlinTest Engine, changing the behavior of the engine
+ * with the Kotest Engine, changing the behavior of the engine
  * at runtime.
  *
  * How do they differ from Listeners? - They differ because listeners

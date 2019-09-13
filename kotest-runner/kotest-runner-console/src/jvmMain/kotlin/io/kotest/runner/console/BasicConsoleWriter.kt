@@ -88,7 +88,7 @@ class BasicConsoleWriter : ConsoleWriter {
     val specDistinctCount = specs.distinct().size
 
     println()
-    println("KotlinTest completed in ${duration.seconds} seconds, ${duration.toMillis()} millis")
+    println("Kotest completed in ${duration.seconds} seconds, ${duration.toMillis()} millis")
     println("Specs: completed $specDistinctCount, tests ${failed.size + passed.size + ignored.size}")
     println("Tests: passed ${passed.size}, failed ${failed.size}, ignored ${ignored.size}")
     if (failed.isNotEmpty()) {

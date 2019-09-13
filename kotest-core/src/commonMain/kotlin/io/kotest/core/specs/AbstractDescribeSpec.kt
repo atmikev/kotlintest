@@ -14,7 +14,7 @@ abstract class AbstractDescribeSpec(body: AbstractDescribeSpec.() -> Unit = {}) 
     body()
   }
 
-  @KotlinTestDsl
+  @KotestDsl
   inner class TestBuilder(val context: TestContext, val name: String) {
 
     @UseExperimental(ExperimentalTime::class)
@@ -37,7 +37,7 @@ abstract class AbstractDescribeSpec(body: AbstractDescribeSpec.() -> Unit = {}) 
     }
   }
 
-  @KotlinTestDsl
+  @KotestDsl
   inner class DescribeScope(val context: TestContext) {
 
     fun it(name: String) = this@AbstractDescribeSpec.TestBuilder(context, "It: $name")

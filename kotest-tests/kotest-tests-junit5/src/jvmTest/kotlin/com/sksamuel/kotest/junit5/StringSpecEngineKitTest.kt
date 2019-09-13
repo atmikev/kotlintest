@@ -45,11 +45,11 @@ class StringSpecEngineKitTest : FunSpec({
         this[3].type shouldBe EventType.FINISHED
         this[4].type shouldBe EventType.FINISHED
 
-        this[0].testDescriptor.displayName shouldBe "KotlinTest"
+        this[0].testDescriptor.displayName shouldBe "Kotest"
         this[1].testDescriptor.displayName shouldBe "com.sksamuel.kotest.junit5.StringSpecExceptionInInit"
         this[2].testDescriptor.displayName shouldBe "com.sksamuel.kotest.junit5.StringSpecExceptionInInit"
         this[3].testDescriptor.displayName shouldBe "com.sksamuel.kotest.junit5.StringSpecExceptionInInit"
-        this[4].testDescriptor.displayName shouldBe "KotlinTest"
+        this[4].testDescriptor.displayName shouldBe "Kotest"
       }
     }
 
@@ -63,7 +63,7 @@ class StringSpecEngineKitTest : FunSpec({
     results.all().succeeded().list().apply {
       assertSoftly {
         size shouldBe 1
-        this[0].testDescriptor.displayName shouldBe "KotlinTest"
+        this[0].testDescriptor.displayName shouldBe "Kotest"
       }
     }
   }
@@ -85,11 +85,11 @@ class StringSpecEngineKitTest : FunSpec({
         this[3].type shouldBe EventType.FINISHED
         this[4].type shouldBe EventType.FINISHED
 
-        this[0].testDescriptor.displayName shouldBe "KotlinTest"
+        this[0].testDescriptor.displayName shouldBe "Kotest"
         this[1].testDescriptor.displayName shouldBe "com.sksamuel.kotest.junit5.StringSpecExceptionInBeforeSpec"
         this[2].testDescriptor.displayName shouldBe "com.sksamuel.kotest.junit5.StringSpecExceptionInBeforeSpec"
         this[3].testDescriptor.displayName shouldBe "com.sksamuel.kotest.junit5.StringSpecExceptionInBeforeSpec"
-        this[4].testDescriptor.displayName shouldBe "KotlinTest"
+        this[4].testDescriptor.displayName shouldBe "Kotest"
       }
     }
 
@@ -104,7 +104,7 @@ class StringSpecEngineKitTest : FunSpec({
       assertSoftly {
         size shouldBe 1
         this[0].type shouldBe EventType.FINISHED
-        this[0].testDescriptor.displayName shouldBe "KotlinTest"
+        this[0].testDescriptor.displayName shouldBe "Kotest"
       }
     }
   }
@@ -132,7 +132,7 @@ class StringSpecEngineKitTest : FunSpec({
         this[9].type shouldBe EventType.FINISHED
         this[10].type shouldBe EventType.FINISHED
 
-        this[0].testDescriptor.displayName shouldBe "KotlinTest"
+        this[0].testDescriptor.displayName shouldBe "Kotest"
         this[1].testDescriptor.displayName shouldBe "com.sksamuel.kotest.junit5.StringSpecExceptionInAfterSpec"
         this[2].testDescriptor.displayName shouldBe "com.sksamuel.kotest.junit5.StringSpecExceptionInAfterSpec"
         this[3].testDescriptor.displayName shouldBe "a failing test"
@@ -142,7 +142,7 @@ class StringSpecEngineKitTest : FunSpec({
         this[7].testDescriptor.displayName shouldBe "a failing test"
         this[8].testDescriptor.displayName shouldBe "a passing test"
         this[9].testDescriptor.displayName shouldBe "com.sksamuel.kotest.junit5.StringSpecExceptionInAfterSpec"
-        this[10].testDescriptor.displayName shouldBe "KotlinTest"
+        this[10].testDescriptor.displayName shouldBe "Kotest"
       }
     }
 
@@ -158,7 +158,7 @@ class StringSpecEngineKitTest : FunSpec({
       assertSoftly {
         size shouldBe 2
         this[0].testDescriptor.displayName shouldBe "a passing test"
-        this[1].testDescriptor.displayName shouldBe "KotlinTest"
+        this[1].testDescriptor.displayName shouldBe "Kotest"
       }
     }
   }
@@ -185,7 +185,7 @@ class StringSpecEngineKitTest : FunSpec({
         this[7].type shouldBe EventType.FINISHED
         this[8].type shouldBe EventType.FINISHED
 
-        this[0].testDescriptor.displayName shouldBe "KotlinTest"
+        this[0].testDescriptor.displayName shouldBe "Kotest"
         this[1].testDescriptor.displayName shouldBe "com.sksamuel.kotest.junit5.StringSpecExceptionInBeforeTest"
         this[2].testDescriptor.displayName shouldBe "com.sksamuel.kotest.junit5.StringSpecExceptionInBeforeTest"
         this[3].testDescriptor.displayName shouldBe "a failing test"
@@ -193,7 +193,7 @@ class StringSpecEngineKitTest : FunSpec({
         this[5].testDescriptor.displayName shouldBe "a passing test"
         this[6].testDescriptor.displayName shouldBe "a passing test"
         this[7].testDescriptor.displayName shouldBe "com.sksamuel.kotest.junit5.StringSpecExceptionInBeforeTest"
-        this[8].testDescriptor.displayName shouldBe "KotlinTest"
+        this[8].testDescriptor.displayName shouldBe "Kotest"
       }
     }
 
@@ -209,7 +209,7 @@ class StringSpecEngineKitTest : FunSpec({
       assertSoftly {
         size shouldBe 2
         this[0].testDescriptor.displayName shouldBe "com.sksamuel.kotest.junit5.StringSpecExceptionInBeforeTest"
-        this[1].testDescriptor.displayName shouldBe "KotlinTest"
+        this[1].testDescriptor.displayName shouldBe "Kotest"
       }
     }
   }
@@ -237,7 +237,7 @@ class StringSpecEngineKitTest : FunSpec({
         this[9].type shouldBe EventType.FINISHED
         this[10].type shouldBe EventType.FINISHED
 
-        this[0].testDescriptor.displayName shouldBe "KotlinTest"
+        this[0].testDescriptor.displayName shouldBe "Kotest"
         this[1].testDescriptor.displayName shouldBe "com.sksamuel.kotest.junit5.StringSpecExceptionInAfterTest"
         this[2].testDescriptor.displayName shouldBe "com.sksamuel.kotest.junit5.StringSpecExceptionInAfterTest"
         this[3].testDescriptor.displayName shouldBe "a failing test"
@@ -247,7 +247,7 @@ class StringSpecEngineKitTest : FunSpec({
         this[7].testDescriptor.displayName shouldBe "a failing test"
         this[8].testDescriptor.displayName shouldBe "a passing test"
         this[9].testDescriptor.displayName shouldBe "com.sksamuel.kotest.junit5.StringSpecExceptionInAfterTest"
-        this[10].testDescriptor.displayName shouldBe "KotlinTest"
+        this[10].testDescriptor.displayName shouldBe "Kotest"
       }
     }
 
@@ -263,7 +263,7 @@ class StringSpecEngineKitTest : FunSpec({
       assertSoftly {
         size shouldBe 2
         this[0].testDescriptor.displayName shouldBe "com.sksamuel.kotest.junit5.StringSpecExceptionInAfterTest"
-        this[1].testDescriptor.displayName shouldBe "KotlinTest"
+        this[1].testDescriptor.displayName shouldBe "Kotest"
       }
     }
   }

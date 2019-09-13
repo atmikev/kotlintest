@@ -38,7 +38,7 @@ abstract class AbstractWordSpec(body: AbstractWordSpec.() -> Unit = {}) : Abstra
     addTestCase("$name when", { thisSpec.WhenContext(this).init() }, defaultTestCaseConfig, TestType.Container)
   }
 
-  @KotlinTestDsl
+  @KotestDsl
   inner class WordScope(val context: TestContext) {
 
      @UseExperimental(ExperimentalTime::class)
@@ -72,7 +72,7 @@ abstract class AbstractWordSpec(body: AbstractWordSpec.() -> Unit = {}) : Abstra
     infix fun String.should(init: () -> Unit) = { init() }
   }
 
-  @KotlinTestDsl
+  @KotestDsl
   inner class WhenContext(val context: TestContext) {
 
     suspend infix fun String.Should(test: suspend WordScope.() -> Unit) = addShouldContext(this, test)
@@ -84,7 +84,7 @@ abstract class AbstractWordSpec(body: AbstractWordSpec.() -> Unit = {}) : Abstra
 
   }
 
-  @KotlinTestDsl
+  @KotestDsl
   inner class FinalTestContext(val context: TestContext, coroutineContext: CoroutineContext) : TestContext(coroutineContext) {
 
     override fun description(): Description = context.description()

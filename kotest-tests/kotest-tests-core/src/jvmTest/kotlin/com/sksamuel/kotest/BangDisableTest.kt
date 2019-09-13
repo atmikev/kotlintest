@@ -23,11 +23,11 @@ class BangDisableStringTest : StringSpec({
 class BangOverridenWordTest : WordSpec({
   "setting system property to override bang" should {
     var run = false
-    System.setProperty("kotlintest.bang.disable", "true")
+    System.setProperty("kotest.bang.disable", "true")
     "!allow this test to run" {
       run = true
     }
-    System.getProperties().remove("kotlintest.bang.disable")
+    System.getProperties().remove("kotest.bang.disable")
     run.shouldBeTrue()
   }
 })

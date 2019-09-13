@@ -38,7 +38,7 @@ fun captureStandardErr(fn: () -> Unit): String {
 }
 
 /**
- * A KotlinTest listener that facilities testing writes to standard out,
+ * A Kotest listener that facilities testing writes to standard out,
  * by redirecting any data written to standard out to an internal buffer.
  *
  * Users can query the written data by fetching the buffer by invoking [output].
@@ -69,7 +69,7 @@ class SystemOutWireListener(private val tee: Boolean = true) : TestListener {
 }
 
 /**
- * A KotlinTest listener that facilities testing writes to standard err,
+ * A Kotest listener that facilities testing writes to standard err,
  * by copying any data written to standard err to an internal buffer.
  *
  * Users can query the written data by fetching the buffer by invoking [output].

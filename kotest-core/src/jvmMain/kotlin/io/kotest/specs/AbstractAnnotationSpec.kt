@@ -115,7 +115,7 @@ abstract class AbstractAnnotationSpec(body: AbstractAnnotationSpec.() -> Unit = 
   /**
    * Marks a function to be executed before each test
    *
-   * This can be used in AnnotationSpec to mark a function to be executed before every test by KotlinTest Engine
+   * This can be used in AnnotationSpec to mark a function to be executed before every test by Kotest Engine
    * @see BeforeAll
    * @see AfterEach
    */
@@ -124,7 +124,7 @@ abstract class AbstractAnnotationSpec(body: AbstractAnnotationSpec.() -> Unit = 
   /**
    * Marks a function to be executed before each test
    *
-   * This can be used in AnnotationSpec to mark a function to be executed before every test by KotlinTest Engine
+   * This can be used in AnnotationSpec to mark a function to be executed before every test by Kotest Engine
    * @see BeforeClass
    * @see After
    */
@@ -133,7 +133,7 @@ abstract class AbstractAnnotationSpec(body: AbstractAnnotationSpec.() -> Unit = 
   /**
    * Marks a function to be executed before each spec
    *
-   * This can be used in AnnotationSpec to mark a function to be executed before a spec by KotlinTest Engine.
+   * This can be used in AnnotationSpec to mark a function to be executed before a spec by Kotest Engine.
    * @see BeforeEach
    * @see AfterAll
    */
@@ -142,7 +142,7 @@ abstract class AbstractAnnotationSpec(body: AbstractAnnotationSpec.() -> Unit = 
   /**
    * Marks a function to be executed before each spec
    *
-   * This can be used in AnnotationSpec to mark a function to be executed before a spec by KotlinTest Engine.
+   * This can be used in AnnotationSpec to mark a function to be executed before a spec by Kotest Engine.
    * @see Before
    * @see AfterClass
    */
@@ -151,7 +151,7 @@ abstract class AbstractAnnotationSpec(body: AbstractAnnotationSpec.() -> Unit = 
   /**
    * Marks a function to be executed after each test
    *
-   * This can be used in AnnotationSpec to mark a function to be executed before a test by KotlinTest Engine.
+   * This can be used in AnnotationSpec to mark a function to be executed before a test by Kotest Engine.
    * @see AfterAll
    * @see BeforeEach
    */
@@ -160,7 +160,7 @@ abstract class AbstractAnnotationSpec(body: AbstractAnnotationSpec.() -> Unit = 
   /**
    * Marks a function to be executed after each test
    *
-   * This can be used in AnnotationSpec to mark a function to be executed before a test by KotlinTest Engine.
+   * This can be used in AnnotationSpec to mark a function to be executed before a test by Kotest Engine.
    * @see AfterClass
    * @see Before
    */
@@ -170,7 +170,7 @@ abstract class AbstractAnnotationSpec(body: AbstractAnnotationSpec.() -> Unit = 
   /**
    * Marks a function to be executed after each spec
    *
-   * This can be used in AnnotationSpec to mark a function to be executed before a spec by KotlinTest Engine.
+   * This can be used in AnnotationSpec to mark a function to be executed before a spec by Kotest Engine.
    * @see AfterEach
    * @see BeforeAll
    */
@@ -179,7 +179,7 @@ abstract class AbstractAnnotationSpec(body: AbstractAnnotationSpec.() -> Unit = 
   /**
    * Marks a function to be executed after each spec
    *
-   * This can be used in AnnotationSpec to mark a function to be executed before a spec by KotlinTest Engine.
+   * This can be used in AnnotationSpec to mark a function to be executed before a spec by Kotest Engine.
    * @see After
    * @see BeforeClass
    */
@@ -188,7 +188,7 @@ abstract class AbstractAnnotationSpec(body: AbstractAnnotationSpec.() -> Unit = 
   /**
    * Marks a function to be executed as a Test
    *
-   * This can be used in AnnotationSpec to mark a function to be executed as a test by KotlinTest Engine.
+   * This can be used in AnnotationSpec to mark a function to be executed as a test by Kotest Engine.
    *
    *
    * [expected] can be used to mark a test to expect a specific exception.
@@ -252,11 +252,11 @@ private fun KFunction<*>.isFunctionAnnotatedWithAnyOf(vararg annotation: KClass<
 private object Failures {
 
   fun failure(message: String, cause: Throwable? = null): AssertionError = AssertionError(message).apply {
-    removeKotlintestElementsFromStacktrace(this)
+    removeKotestElementsFromStacktrace(this)
     initCause(cause)
   }
 
-  fun removeKotlintestElementsFromStacktrace(throwable: Throwable) {
+  fun removeKotestElementsFromStacktrace(throwable: Throwable) {
     throwable.stackTrace = UserStackTraceConverter.getUserStacktrace(throwable.stackTrace)
   }
 
@@ -264,32 +264,32 @@ private object Failures {
 
 private object UserStackTraceConverter {
 
-  fun getUserStacktrace(kotlintestStacktraces: Array<StackTraceElement>): Array<StackTraceElement> {
-    return kotlintestStacktraces.dropUntilUserClass()
+  fun getUserStacktrace(kotestStacktraces: Array<StackTraceElement>): Array<StackTraceElement> {
+    return kotestStacktraces.dropUntilUserClass()
   }
 
   private fun Array<StackTraceElement>.dropUntilUserClass(): Array<StackTraceElement> {
-    return toList().dropUntilFirstKotlintestClass().dropUntilFirstNonKotlintestClass().toTypedArray()
+    return toList().dropUntilFirstKotestClass().dropUntilFirstNonKotestClass().toTypedArray()
   }
 
-  private fun List<StackTraceElement>.dropUntilFirstKotlintestClass(): List<StackTraceElement> {
+  private fun List<StackTraceElement>.dropUntilFirstKotestClass(): List<StackTraceElement> {
     return dropWhile {
-      it.isNotKotlintestClass()
+      it.isNotKotestClass()
     }
   }
 
-  private fun List<StackTraceElement>.dropUntilFirstNonKotlintestClass(): List<StackTraceElement> {
+  private fun List<StackTraceElement>.dropUntilFirstNonKotestClass(): List<StackTraceElement> {
     return dropWhile {
-      it.isKotlintestClass()
+      it.isKotestClass()
     }
   }
 
-  private fun StackTraceElement.isKotlintestClass(): Boolean {
+  private fun StackTraceElement.isKotestClass(): Boolean {
     return className.startsWith("io.kotest")
   }
 
-  private fun StackTraceElement.isNotKotlintestClass(): Boolean {
-    return !isKotlintestClass()
+  private fun StackTraceElement.isNotKotestClass(): Boolean {
+    return !isKotestClass()
   }
 
 }

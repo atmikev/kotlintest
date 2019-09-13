@@ -6,10 +6,10 @@ import io.kotest.Tag
 import net.sourceforge.argparse4j.ArgumentParsers
 import kotlin.system.exitProcess
 
-// this main method will launch the KotlinTestConsoleRunner
+// this main method will launch the KotestConsoleRunner
 fun main(args: Array<String>) {
 
-  val parser = ArgumentParsers.newFor("kotest").build().defaultHelp(true).description("KotlinTest console runner")
+  val parser = ArgumentParsers.newFor("kotest").build().defaultHelp(true).description("Kotest console runner")
   parser.addArgument("--test").help("Specify the test name to execute (can be a leaf test or a container test)")
   parser.addArgument("--spec").help("Specify the fully qualified name of the spec class which contains the test to execute")
   parser.addArgument("--writer").help("Specify the name of console writer implementation. Defaults TeamCity")
@@ -39,7 +39,7 @@ fun main(args: Array<String>) {
     else -> TeamCityConsoleWriter()
   }
 
-  val runner = KotlinTestConsoleRunner(writer)
+  val runner = KotestConsoleRunner(writer)
   runner.execute(spec, test, includeTags, excludeTags)
 
   // there could be threads in the background that will stop the launcher shutting down

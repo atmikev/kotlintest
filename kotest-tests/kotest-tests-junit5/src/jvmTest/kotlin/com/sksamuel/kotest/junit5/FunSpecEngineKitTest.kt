@@ -9,7 +9,7 @@ class FunSpecEngineKitTest : FunSpec({
 
   test("verify container stats") {
     EngineTestKit
-        .engine("kotlintest")
+        .engine("kotest")
         .selectors(selectClass(FunSpecTestCase::class.java))
         .execute()
         .containers()
@@ -18,7 +18,7 @@ class FunSpecEngineKitTest : FunSpec({
 
   test("verify test stats") {
     EngineTestKit
-        .engine("kotlintest")
+        .engine("kotest")
         .selectors(selectClass(FunSpecTestCase::class.java))
         .execute()
         .tests()
@@ -28,7 +28,7 @@ class FunSpecEngineKitTest : FunSpec({
   test("mark spec as failed if failOnIgnoredTests is set") {
     Project.failOnIgnoredTests = true
     EngineTestKit
-        .engine("kotlintest")
+        .engine("kotest")
         .selectors(selectClass(FailOnIgnoreTestCase::class.java))
         .execute()
         .containers()

@@ -63,13 +63,13 @@ object SpringListener : TestListener {
       } else {
         val fakeSpec = ByteBuddy()
                 .subclass(klass)
-                .defineMethod("kotlintestDummyMethod", String::class.java, Visibility.PUBLIC)
+                .defineMethod("kotestDummyMethod", String::class.java, Visibility.PUBLIC)
                 .intercept(FixedValue.value("Foo"))
                 .make()
                 .load(this::class.java.classLoader, ClassLoadingStrategy.Default.CHILD_FIRST)
                 .loaded
 
-        fakeSpec.getMethod("kotlintestDummyMethod")
+        fakeSpec.getMethod("kotestDummyMethod")
       }
     }
 }

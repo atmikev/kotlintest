@@ -23,7 +23,7 @@ import java.util.Optional
 import kotlin.reflect.KClass
 
 /**
- * An implementation of KotlinTest that runs as a JUnit Platform [TestEngine].
+ * An implementation of Kotest that runs as a JUnit Platform [TestEngine].
  */
 class KotestEngine : TestEngine {
 
@@ -37,7 +37,7 @@ class KotestEngine : TestEngine {
 
   override fun execute(request: ExecutionRequest) {
     logger.trace("JUnit execution request [configurationParameters=${request.configurationParameters}; rootTestDescriptor=${request.rootTestDescriptor}]")
-    val root = request.rootTestDescriptor as KotlinTestEngineDescriptor
+    val root = request.rootTestDescriptor as KotestEngineDescriptor
     val listener = IsolationTestEngineListener(JUnitTestRunnerListener(SynchronizedEngineExecutionListener(request.engineExecutionListener), root))
     val runner = io.kotest.runner.jvm.TestEngine(root.classes,
       emptyList(),
@@ -49,7 +49,7 @@ class KotestEngine : TestEngine {
   }
 
   override fun discover(request: EngineDiscoveryRequest,
-                        uniqueId: UniqueId): KotlinTestEngineDescriptor {
+                        uniqueId: UniqueId): KotestEngineDescriptor {
     logger.trace("configurationParameters=" + request.configurationParameters)
     logger.trace("uniqueId=$uniqueId")
 
@@ -85,7 +85,7 @@ class KotestEngine : TestEngine {
             override fun getType(): TestDescriptor.Type = TestDescriptor.Type.CONTAINER
             override fun getSource(): Optional<TestSource> = Optional.of(ClassSource.from(klass.java))
           }
-          val parent = KotlinTestEngineDescriptor(uniqueId, emptyList())
+          val parent = KotestEngineDescriptor(uniqueId, emptyList())
           parent.addChild(descriptor)
           return filter.apply(descriptor).included()
         }
@@ -93,14 +93,14 @@ class KotestEngine : TestEngine {
 
       val testFilters = postFilters.map { ClassMethodAdaptingFilter(it) }
       val classes = result.classes.filter { klass -> testFilters.isEmpty() || testFilters.any { it.invoke(klass) } }
-      return KotlinTestEngineDescriptor(uniqueId, classes)
+      return KotestEngineDescriptor(uniqueId, classes)
 
     } else {
-      return KotlinTestEngineDescriptor(uniqueId, emptyList())
+      return KotestEngineDescriptor(uniqueId, emptyList())
     }
   }
 
-  class KotlinTestEngineDescriptor(id: UniqueId, val classes: List<KClass<out Spec>>) : EngineDescriptor(id, "Kotest") {
+  class KotestEngineDescriptor(id: UniqueId, val classes: List<KClass<out Spec>>) : EngineDescriptor(id, "Kotest") {
     override fun mayRegisterTests(): Boolean = true
   }
 }

@@ -110,7 +110,7 @@ class JUnitTestRunnerListener(private val listener: EngineExecutionListener,
   }
 
   private fun writeSpecFailures(failures: List<ResultState>): Try<Any> = Try {
-    val dir = Paths.get(".kotlintest")
+    val dir = Paths.get(".kotest")
     dir.toFile().mkdirs()
     val path = dir.resolve("spec_failures").toAbsolutePath()
     logger.trace("Writing report to $path")

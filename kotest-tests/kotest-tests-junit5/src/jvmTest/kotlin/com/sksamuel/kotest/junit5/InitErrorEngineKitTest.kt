@@ -10,7 +10,7 @@ class InitErrorEngineKitTest : FunSpec({
 
   test("a test that fails to initialise should fail the run") {
 
-    System.setProperty("KotlinTestEngineTest", "true")
+    System.setProperty("KotestEngineTest", "true")
 
     val results = EngineTestKit
             .engine("kotest")
@@ -19,11 +19,11 @@ class InitErrorEngineKitTest : FunSpec({
 
     /*
     There should be the following container events:
-      - Event [type = STARTED,                 testDescriptor = KotlinTestEngineDescriptor: [engine:kotest],                                                            payload = null]
+      - Event [type = STARTED,                 testDescriptor = KotestEngineDescriptor: [engine:kotest],                                                            payload = null]
       - Event [type = DYNAMIC_TEST_REGISTERED, testDescriptor = createSpecDescriptor$descriptor$1: [engine:kotest]/[spec:com.sksamuel.kotest.junit5.InitErrorSpec], payload = null]
       - Event [type = STARTED,                 testDescriptor = createSpecDescriptor$descriptor$1: [engine:kotest]/[spec:com.sksamuel.kotest.junit5.InitErrorSpec], payload = null]
       - Event [type = FINISHED,                testDescriptor = createSpecDescriptor$descriptor$1: [engine:kotest]/[spec:com.sksamuel.kotest.junit5.InitErrorSpec], payload = TestExecutionResult [status = FAILED, throwable = java.lang.reflect.InvocationTargetException]]
-      - Event [type = FINISHED,                testDescriptor = KotlinTestEngineDescriptor: [engine:kotest],                                                            payload = TestExecutionResult [status = FAILED, throwable = java.lang.reflect.InvocationTargetException]]
+      - Event [type = FINISHED,                testDescriptor = KotestEngineDescriptor: [engine:kotest],                                                            payload = TestExecutionResult [status = FAILED, throwable = java.lang.reflect.InvocationTargetException]]
      */
     results
          .containers()
@@ -39,6 +39,6 @@ class InitErrorEngineKitTest : FunSpec({
 }) {
   override fun afterTest(testCase: TestCase, result: TestResult) {
     super.afterTest(testCase, result)
-    System.clearProperty("KotlinTestEngineTest")
+    System.clearProperty("KotestEngineTest")
   }
 }

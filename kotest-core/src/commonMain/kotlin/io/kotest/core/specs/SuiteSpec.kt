@@ -27,7 +27,7 @@ abstract class SuiteSpec(body: SuiteSpec.() -> Unit = {}) : AbstractSpec() {
     )
   }
 
-  @KotlinTestDsl
+  @KotestDsl
   inner class SuiteScope(val context: TestContext) {
     suspend fun test(name: String, test: suspend TestContext.() -> Unit) {
       context.registerTestCase(name, this@SuiteSpec, test, TestCaseConfig(), TestType.Test)

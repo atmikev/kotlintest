@@ -12,7 +12,7 @@ import org.junit.platform.engine.discovery.PackageSelector
 import org.junit.platform.engine.discovery.UriSelector
 
 /**
- * Returns a KotlinTest [DiscoveryRequest] built from the selectors and filters present
+ * Returns a Kotest [DiscoveryRequest] built from the selectors and filters present
  * in the JUnit [EngineDiscoveryRequest].
  *
  * Supported selectors are:

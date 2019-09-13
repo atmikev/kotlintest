@@ -7,7 +7,7 @@ import io.kotest.plugin.pitest.specs.StringSpecs
 import io.kotest.plugin.pitest.specs.WordSpecs
 import io.kotest.specs.FunSpec
 
-class KotlinTestUnitTest : FunSpec() {
+class Kotest : FunSpec() {
 
   init {
 
@@ -38,7 +38,7 @@ class KotlinTestUnitTest : FunSpec() {
 
   private fun findTestsIn(clazz: Class<*>): TestResultCollector {
     val resultCollector = TestResultCollector()
-    KotlinTestUnitFinder().findTestUnits(clazz)
+    KotestUnitFinder().findTestUnits(clazz)
         .stream()
         .forEach { testUnit -> testUnit.execute(resultCollector) }
     return resultCollector

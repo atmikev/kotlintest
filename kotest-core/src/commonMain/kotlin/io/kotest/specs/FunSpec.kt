@@ -5,7 +5,7 @@ import io.kotest.TestType
 import io.kotest.core.TestCaseConfig
 import io.kotest.core.TestContext
 import io.kotest.core.specs.AbstractSpecDsl
-import io.kotest.core.specs.KotlinTestDsl
+import io.kotest.core.specs.KotestDsl
 import io.kotest.extensions.TestCaseExtension
 import kotlin.time.Duration
 import kotlin.time.ExperimentalTime
@@ -41,7 +41,7 @@ abstract class FunSpec(body: FunSpec.() -> Unit = {}) : AbstractSpecDsl() {
       addTestCase(name, { ContextScope(this).init() }, defaultTestCaseConfig, TestType.Container)
    }
 
-   @KotlinTestDsl
+   @KotestDsl
    inner class ContextScope(val context: TestContext) {
 
       suspend fun context(name: String, init: suspend ContextScope.() -> Unit) {

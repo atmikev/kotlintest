@@ -11,7 +11,7 @@ import io.kotest.runner.jvm.TestDiscovery
 import io.kotest.runner.jvm.TestEngineListener
 import org.slf4j.LoggerFactory
 
-class KotlinTestConsoleRunner(private val writer: TestEngineListener) {
+class KotestConsoleRunner(private val writer: TestEngineListener) {
 
   private val logger = LoggerFactory.getLogger(this.javaClass)
 

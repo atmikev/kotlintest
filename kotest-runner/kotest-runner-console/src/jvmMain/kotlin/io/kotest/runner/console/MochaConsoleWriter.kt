@@ -151,7 +151,7 @@ class MochaConsoleWriter(private val term: TermColors,
     val specDistinctCount = specs.distinct().size
 
     println()
-    println(term.brightWhite("${margin}KotlinTest completed in ${duration.toLongMilliseconds()} seconds / ${duration.toLongMilliseconds()} milliseconds"))
+    println(term.brightWhite("${margin}Kotest completed in ${duration.toLongMilliseconds()} seconds / ${duration.toLongMilliseconds()} milliseconds"))
     println("${margin}Executed $specDistinctCount specs containing ${failed.size + passed.size + ignored.size} tests")
     println("$margin${passed.size} passed, ${failed.size} failed, ${ignored.size} ignored")
     if (failed.isNotEmpty()) {

@@ -11,7 +11,7 @@ import org.pitest.testapi.ResultCollector
 import org.pitest.testapi.TestUnit
 import kotlin.reflect.KClass
 
-class KotlinTestUnit(val klass: KClass<out Spec>) : TestUnit {
+class KotestUnit(val klass: KClass<out Spec>) : TestUnit {
 
   override fun getDescription(): Description = Description(io.kotest.Description.fromSpecClass(klass).fullName(), klass.java)
 

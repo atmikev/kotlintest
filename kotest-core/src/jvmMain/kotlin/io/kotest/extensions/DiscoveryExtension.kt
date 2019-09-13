@@ -4,7 +4,7 @@ import io.kotest.Spec
 import kotlin.reflect.KClass
 
 /**
- * Allows interception of the discovery phase of KotlinTest.
+ * Allows interception of the discovery phase of Kotest.
  *
  * The discovery phase is the part of the test cycle that finds
  * possible [Spec] classes on the classpath and then instantiates them

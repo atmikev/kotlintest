@@ -9,7 +9,7 @@ kotlin_test.setAdapter({
         describe(name, fn)
     },
     test: function (name, ignored, fn) {
-        if (name == "kotlintest_generate_tests") {
+        if (name == "kotest_generate_tests") {
            fn()
         } else {
            it(name, fn)

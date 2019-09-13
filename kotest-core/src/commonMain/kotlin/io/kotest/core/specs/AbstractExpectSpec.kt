@@ -36,7 +36,7 @@ abstract class AbstractExpectSpec(body: AbstractExpectSpec.() -> Unit = {}) : Ab
       }
    }
 
-  @KotlinTestDsl
+  @KotestDsl
   inner class ExpectScope(val context: TestContext) {
 
     suspend fun context(name: String, test: suspend ExpectScope.() -> Unit) =

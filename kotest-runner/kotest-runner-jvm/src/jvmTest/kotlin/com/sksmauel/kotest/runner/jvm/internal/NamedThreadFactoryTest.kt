@@ -1,4 +1,4 @@
-package com.sksmauel.kotlintest.runner.jvm.internal
+package com.sksmauel.kotest.runner.jvm.internal
 
 import io.kotest.runner.jvm.internal.NamedThreadFactory
 import io.kotest.shouldBe

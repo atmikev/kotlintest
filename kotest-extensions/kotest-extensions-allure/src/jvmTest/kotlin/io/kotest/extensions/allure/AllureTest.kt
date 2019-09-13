@@ -1,7 +1,7 @@
-//package io.kotlintest.extensions.allure
+//package io.kotest.extensions.allure
 //
-//import io.kotlintest.matchers.string.haveLength
-//import io.kotlintest.specs.WordSpec
+//import io.kotest.matchers.string.haveLength
+//import io.kotest.specs.WordSpec
 //import io.qameta.allure.SeverityLevel
 //
 //class AllureTest : WordSpec() {

@@ -5,7 +5,7 @@ import io.kotest.extensions.SpecLevelExtension
 import io.kotest.extensions.TestListener
 
 /**
- * A [Spec] is the top level component in KotlinTest.
+ * A [Spec] is the top level component in Kotest.
  *
  * It contains the root [TestCase] instances which in turn
  * can contain nested [TestCase] instances.
