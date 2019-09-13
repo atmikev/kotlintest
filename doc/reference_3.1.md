@@ -1,7 +1,7 @@
 KotlinTest
 ==========
 
-[<img src="https://img.shields.io/maven-central/v/io.kotlintest/kotlintest-core.svg?label=latest%20release"/>](http://search.maven.org/#search|ga|1|kotlintest) [![GitHub license](https://img.shields.io/github/license/kotlintest/kotlintest.svg)]()
+[<img src="https://img.shields.io/maven-central/v/io.kotest/kotlintest-core.svg?label=latest%20release"/>](http://search.maven.org/#search|ga|1|kotlintest) [![GitHub license](https://img.shields.io/github/license/kotlintest/kotlintest.svg)]()
 
 This version of the document is aimed at version 3.1
 
@@ -21,7 +21,7 @@ test {
 }
 
 dependencies {
-  testCompile 'io.kotlintest:kotlintest-runner-junit5:3.1.10'
+  testCompile kotest
 }
 ```
 
@@ -48,7 +48,7 @@ And then add the KotlinTest JUnit5 runner to your build.
 
 ```xml
 <dependency>
-    <groupId>io.kotlintest</groupId>
+    <groupId>io.kotest</groupId>
     <artifactId>kotlintest-runner-junit5</artifactId>
     <version>3.1.8</version>
     <scope>test</scope>
@@ -345,7 +345,7 @@ KotlinTest is flexible and has many ways to configure tests.
  which is loaded at runtime by KotlinTest.
 
 To do this, create an object that is derived from `AbstractProjectConfig`, name this object `ProjectConfig`
-and place it in a package called `io.kotlintest.provided`. KotlinTest will detect it's presence and use any configuration
+and place it in a package called `io.kotest.provided`. KotlinTest will detect it's presence and use any configuration
 defined there when executing tests.
 
 Some of the configuration available in `ProjectConfig` includes parallelism of tests, executing code before and after
@@ -359,7 +359,7 @@ To execute some logic before the very first test case and/or after the very last
 Example:
 
 ```kotlin
-package io.kotlintest.provided
+package io.kotest.provided
 
 object ProjectConfig : AbstractProjectConfig() {
 
@@ -835,7 +835,7 @@ Grouping Tests with Tags
 ------------------------
 
 Sometimes you don't want to run all tests and KotlinTest provides tags to be able to run only
-certain tests. Tags are objects inheriting from `io.kotlintest.Tag`.
+certain tests. Tags are objects inheriting from `io.kotest.Tag`.
 
 To group tests by operating system you could define the following tags:
 
@@ -847,7 +847,7 @@ object Windows: Tag()
 Test cases are marked with tags with the `config` function:
 
 ```kotlin
-import io.kotlintest.specs.StringSpec
+import io.kotest.specs.StringSpec
 
 class MyTest : StringSpec() {
   init {

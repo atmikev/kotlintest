@@ -101,7 +101,7 @@ The [Koin DI Framework](https://insert-koin.io/) can be used with KotlinTest thr
 
 To add the listener to your project, add the depency to your project:
 ```groovy
-testImplementation("io.kotlintest:kotlintest-extensions-koin:${kotlinTestVersion}")
+testImplementation("kotest${kotlinTestVersion}")
 ```
 
 With the dependency added, we can use Koin in our tests!

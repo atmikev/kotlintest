@@ -3,8 +3,8 @@
 
 [![Build Status](https://travis-ci.org/kotlintest/kotlintest.svg?branch=master)](https://travis-ci.org/kotlintest/kotlintest) 
 [![Build status](https://ci.appveyor.com/api/projects/status/sr26tg49fk66yd82?svg=true)](https://ci.appveyor.com/project/sksamuel/kotlintest)
-[<img src="https://img.shields.io/maven-central/v/io.kotlintest/kotlintest-core.svg?label=latest%20release"/>](http://search.maven.org/#search|ga|1|kotlintest) [![GitHub license](https://img.shields.io/github/license/kotlintest/kotlintest.svg)]()
-[<img src="https://img.shields.io/nexus/s/https/oss.sonatype.org/io.kotlintest/kotlintest-core.svg?label=latest%20snapshot&style=plastic"/>](https://oss.sonatype.org/content/repositories/snapshots/io/kotlintest/)
+[<img src="https://img.shields.io/maven-central/v/io.kotest/kotlintest-core.svg?label=latest%20release"/>](http://search.maven.org/#search|ga|1|kotlintest) [![GitHub license](https://img.shields.io/github/license/kotlintest/kotlintest.svg)]()
+[<img src="https://img.shields.io/nexus/s/https/oss.sonatype.org/io.kotest/kotlintest-core.svg?label=latest%20snapshot&style=plastic"/>](https://oss.sonatype.org/content/repositories/snapshots/io/kotlintest/)
 
 __KotlinTest is a flexible and comprehensive testing tool for [Kotlin](https://kotlinlang.org/).__  
 [Full documentation](doc/reference.md)
@@ -165,7 +165,7 @@ test {
 }
 
 dependencies {
-  testImplementation 'io.kotlintest:kotlintest-runner-junit5:3.3.2'
+  testImplementation kotest
 }
 ```
 
@@ -177,9 +177,7 @@ val test by tasks.getting(Test::class) {
 }
 
 dependencies {
-    testImplementation("io.kotlintest:kotlintest-runner-junit5:3.3.2")
-}
-```
+    testImplementation("io.kotest`
 
 or with gradle and Android
 
@@ -194,9 +192,7 @@ android {
 }
 
 dependencies {
-  testImplementation 'io.kotlintest:kotlintest-runner-junit5:3.3.2'
-}
-```
+  testImplementation 'io.kotlintest:kotlintest-runner-junit5io.kotest
 
 #### Maven
 
@@ -215,7 +211,7 @@ And then add the KotlinTest JUnit5 runner to your build.
 ```xml
 <dependency>
     <groupId>io.kotlintest</groupId>
-    <artifactId>kotlintest-runner-junit5</artifactId>
+    <artifactIio.kotestrunner-junit5</artifactId>
     <version>3.3.2</version>
     <scope>test</scope>
 </dependency>
